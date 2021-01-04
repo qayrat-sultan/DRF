@@ -26,7 +26,7 @@ SECRET_KEY = '*&zw8d_4%i32sa44^311mwfo2=&3dk5fpf-ti*3e0mfykyb$#b'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["83.221.164.83", "127.0.0.1"]
 
 
 # Application definition
@@ -42,6 +42,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'django_filters',
+    'drf_yasg',
+
+    'oauth2_provider',
+    'social_django',
+    'rest_framework_social_oauth2',
 
     'djoser',
     'service',
@@ -138,6 +143,17 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = '7718719'
+SOCIAL_AUTH_VK_OAUTH2_SECRET = 'rYnbcVhPibcbDqE05u6H'
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.vk.VKOAuth2',
+    'rest_framework_social_oauth2.backends.DjangoOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
@@ -153,7 +169,7 @@ REST_FRAMEWORK = {
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'productgsm@gmail.com'
-EMAIL_HOST_PASSWORD = '719364825gG@'
+EMAIL_HOST_PASSWORD = '719364825g   pip'
 EMAIL_PORT = 587
 
 
